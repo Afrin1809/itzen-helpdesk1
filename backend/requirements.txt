@@ -3,3 +3,4 @@ uvicorn[standard]==0.23.1
 python-multipart
 pytz
 sqlalchemy
+psycopg2-binary

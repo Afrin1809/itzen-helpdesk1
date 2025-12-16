@@ -108,10 +108,29 @@ def build_items(kb: Dict[str, Any]) -> List[Dict[str, Any]]:
 ITEMS = build_items(KB)
 
 # ----- SQLite (SQLAlchemy) setup -----
-DB_PATH = BASE_DIR / "tickets.db"
-DB_URL = f"sqlite:///{DB_PATH}"
-connect_args = {"check_same_thread": False}
-engine = create_engine(DB_URL, connect_args=connect_args, echo=False, future=True)
+# ----- PostgreSQL (SQLAlchemy) setup -----
+from sqlalchemy import create_engine
+from sqlalchemy.orm import declarative_base, sessionmaker
+import os
+
+DATABASE_URL = os.getenv("DATABASE_URL")
+if DATABASE_URL:
+    # Render / Production (PostgreSQL)
+    engine = create_engine(
+        DATABASE_URL,
+        pool_pre_ping=True,
+        echo=False,
+        future=True
+    )
+else:
+    # Local development (SQLite)
+    DB_PATH = BASE_DIR / "tickets.db"
+    engine = create_engine(
+        f"sqlite:///{DB_PATH}",
+        connect_args={"check_same_thread": False},
+        echo=False,
+        future=True
+    )
 
 Base = declarative_base()
 class Ticket(Base):
