@@ -31,6 +31,7 @@ async function loadTickets(){
     div.className = 'card';
     div.innerHTML = `
       <b>${t.ticket_id}</b><br>
+      ZID: <b>${t.zid}</b><br>
       ${t.title}<br>
       Status:
       <select onchange="updateStatus('${t.ticket_id}', this.value)">

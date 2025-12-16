@@ -162,6 +162,7 @@ SessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False)
 def ticket_to_dict(t: Ticket) -> Dict[str, Any]:
     return {
         "ticket_id": t.ticket_id,
+        "zid": t.zid,
         "title": t.title,
         "description": t.description,
         "status": t.status,
