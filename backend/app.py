@@ -182,7 +182,24 @@ async def get_kb():
 @app.get("/api/items")
 async def get_items():
     return ITEMS
+@app.put("/api/tickets/{ticket_id}/status")
+async def update_ticket_status(ticket_id: str, payload: Dict[str, str]):
+    new_status = payload.get("status")
+    if new_status not in ["open", "in-progress", "closed"]:
+        raise HTTPException(status_code=400, detail="Invalid status")
 
+    db = SessionLocal()
+    try:
+        t = db.query(Ticket).filter(Ticket.ticket_id == ticket_id).first()
+        if not t:
+            raise HTTPException(status_code=404, detail="Ticket not found")
+
+        t.status = new_status
+        db.commit()
+        db.refresh(t)
+        return ticket_to_dict(t)
+    finally:
+        db.close()
 # --- Admin login endpoint (server-side auth) ---
 @app.post("/api/admin/login")
 async def admin_login(payload: Dict[str, str] = Body(...)):

@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Admin Dashboard</title>
+<style>
+body { font-family: Arial; background:#0b1c2d; color:#eaffff; padding:20px }
+.card { background:#132f4c; padding:16px; border-radius:10px; margin-bottom:16px }
+select, button { padding:6px; margin-left:8px }
+</style>
+</head>
+<body>
+
+<h2>🛠 ITZen Admin Dashboard</h2>
+
+<div id="tickets"></div>
+
+<script>
+async function loadTickets(){
+  const res = await fetch('/api/tickets');
+  const tickets = await res.json();
+
+  const box = document.getElementById('tickets');
+  box.innerHTML = '';
+
+  tickets.forEach(t => {
+    const div = document.createElement('div');
+    div.className = 'card';
+    div.innerHTML = `
+      <b>${t.ticket_id}</b><br>
+      ${t.title}<br>
+      Status:
+      <select onchange="updateStatus('${t.ticket_id}', this.value)">
+        <option ${t.status==='open'?'selected':''}>open</option>
+        <option ${t.status==='in-progress'?'selected':''}>in-progress</option>
+        <option ${t.status==='closed'?'selected':''}>closed</option>
+      </select>
+    `;
+    box.appendChild(div);
+  });
+}
+
+async function updateStatus(id, status){
+  await fetch('/api/tickets/' + id + '/status', {
+    method:'PUT',
+    headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({ status })
+  });
+  alert("Status updated");
+}
+
+loadTickets();
+</script>
+
+</body>
+</html>
