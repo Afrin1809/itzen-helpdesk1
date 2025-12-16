@@ -184,8 +184,9 @@ async def get_items():
     return ITEMS
 @app.put("/api/tickets/{ticket_id}/status")
 async def update_ticket_status(ticket_id: str, payload: Dict[str, str]):
-    new_status = payload.get("status")
-    if new_status not in ["open", "in-progress", "closed"]:
+    new_status = (payload.get("status") or "").strip()
+
+    if new_status not in ("open", "in-progress", "closed"):
         raise HTTPException(status_code=400, detail="Invalid status")
 
     db = SessionLocal()
@@ -196,10 +197,10 @@ async def update_ticket_status(ticket_id: str, payload: Dict[str, str]):
 
         t.status = new_status
         db.commit()
-        db.refresh(t)
-        return ticket_to_dict(t)
+        return {"updated": True, "ticket_id": ticket_id, "status": new_status}
     finally:
         db.close()
+
 # --- Admin login endpoint (server-side auth) ---
 @app.post("/api/admin/login")
 async def admin_login(payload: Dict[str, str] = Body(...)):
