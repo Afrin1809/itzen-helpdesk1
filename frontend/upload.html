@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>KB Upload — Admin</title>
+<style>
+  :root{ --panel: rgba(255,255,255,0.02); --border: rgba(255,255,255,0.06); --accent:#00a4ff; --muted:#cfeffd; }
+  html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial;background:linear-gradient(180deg,#04131a,#06232a);color:var(--muted);display:flex;align-items:center;justify-content:center;padding:18px;}
+  .card{ width:820px; max-width:98%; background:var(--panel); border-radius:12px; padding:20px; border:1px solid var(--border); box-shadow:0 18px 60px rgba(0,0,0,0.6); }
+  h2{ margin:0 0 12px 0; color:#9be7ff; font-size:20px; }
+  .form{ display:flex; flex-direction:column; gap:12px; }
+  label{ font-size:13px; color:var(--muted); margin-bottom:6px; display:block; }
+  input[type="text"], input[type="password"], textarea, select{ width:100%; padding:12px 14px; border-radius:8px; border:1px solid var(--border); background: rgba(255,255,255,0.02); color:inherit; font-size:14px; outline:none; box-sizing:border-box; }
+  input::placeholder{ color: rgba(207,239,253,0.25); }
+  input:focus, textarea:focus, select:focus{ border-color: rgba(0,164,255,0.9); box-shadow: 0 6px 18px rgba(0,164,255,0.06); }
+  textarea{ min-height:120px; resize:vertical; padding-top:10px; }
+  .row{ display:flex; gap:8px; align-items:center; }
+  .btn{ padding:10px 14px; border-radius:8px; border:none; font-weight:700; cursor:pointer; }
+  .btn.primary{ background:var(--accent); color:#001822; }
+  .btn.ghost{ background:transparent; border:1px solid var(--border); color:var(--muted); }
+  .message{ margin-top:10px; padding:10px; border-radius:8px; display:none; }
+  .message.error{ background: rgba(40,10,10,0.2); color:#ffdede; border:1px solid rgba(255,80,80,0.5); display:block; }
+  .message.ok{ background: rgba(0,50,30,0.12); color:#cfeffd; border:1px solid rgba(0,200,150,0.18); display:block; }
+  .hidden{ display:none !important; }
+</style>
+</head>
+<body>
+  <main class="card" role="main" aria-label="KB Upload admin">
+    <h2>KB Upload — Admin</h2>
+
+    <div id="loginArea" class="form" aria-live="polite">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+        <div>
+          <label for="username">Username</label>
+          <input id="username" type="text" autocomplete="username" placeholder="" />
+        </div>
+        <div>
+          <label for="password">Password</label>
+          <input id="password" type="password" autocomplete="current-password" placeholder="" />
+        </div>
+      </div>
+
+      <div class="row">
+        <button id="loginBtn" class="btn primary">Login</button>
+        <button class="btn ghost" onclick="location.href='index.html'">Back</button>
+      </div>
+
+      <div id="loginMsg" class="message error" role="status" aria-live="polite" style="display:none;"></div>
+    </div>
+
+    <div id="uploadArea" class="form hidden" aria-hidden="true">
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <div style="font-size:13px;">Logged in</div>
+        <button class="btn ghost" onclick="logout()">Logout</button>
+      </div>
+
+      <div>
+        <label for="questionInput">Question</label>
+        <input id="questionInput" type="text" placeholder="Enter question text" />
+      </div>
+
+      <div>
+        <label for="answerType">Answer type</label>
+        <select id="answerType">
+          <option value="text">Text</option>
+          <option value="link">Link</option>
+          <option value="file">File</option>
+        </select>
+      </div>
+
+      <div id="answerTextRow">
+        <label for="answerText">Answer (text)</label>
+        <textarea id="answerText" placeholder="Provide the answer or steps"></textarea>
+      </div>
+
+      <div id="answerLinkRow" style="display:none;">
+        <label for="answerLink">Answer (link)</label>
+        <input id="answerLink" type="text" placeholder="https://example.com/..." />
+      </div>
+
+      <div id="answerFileRow" style="display:none;">
+        <label for="answerFile">Upload file</label>
+        <input id="answerFile" type="file" accept=".pdf,.ppt,.pptx,.doc,.docx,image/*" />
+      </div>
+
+      <div style="display:flex; gap:8px;">
+        <button id="uploadBtn" class="btn primary">Upload to KB</button>
+        <button class="btn ghost" onclick="location.href='index.html'">Cancel</button>
+      </div>
+
+      <div id="uploadMsg" class="message ok" style="display:none;"></div>
+    </div>
+  </main>
+
+<script>
+  // attempt server login (calls POST /api/admin/login)
+  async function serverLogin(user, pass){
+    try{
+      const res = await fetch('/api/admin/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username: user, password: pass }),
+        cache: 'no-store'
+      });
+      return res.status === 200;
+    }catch(e){
+      return false;
+    }
+  }
+
+  const loginBtn = document.getElementById('loginBtn');
+  const usernameEl = document.getElementById('username');
+  const passwordEl = document.getElementById('password');
+  const loginMsg = document.getElementById('loginMsg');
+
+  const loginArea = document.getElementById('loginArea');
+  const uploadArea = document.getElementById('uploadArea');
+  const answerType = document.getElementById('answerType');
+  const answerTextRow = document.getElementById('answerTextRow');
+  const answerLinkRow = document.getElementById('answerLinkRow');
+  const answerFileRow = document.getElementById('answerFileRow');
+  const uploadBtn = document.getElementById('uploadBtn');
+  const uploadMsg = document.getElementById('uploadMsg');
+
+  function showLoginError(msg){
+    loginMsg.textContent = msg;
+    loginMsg.style.display = 'block';
+  }
+  function hideLoginError(){ loginMsg.style.display = 'none'; }
+
+  async function doLogin(){
+    hideLoginError();
+    const user = (usernameEl.value || '').trim();
+    const pass = (passwordEl.value || '').trim();
+    if(!user || !pass){
+      showLoginError('Enter username and password');
+      return;
+    }
+    const ok = await serverLogin(user, pass);
+    if(ok){
+      loginArea.classList.add('hidden');
+      uploadArea.classList.remove('hidden');
+      uploadArea.setAttribute('aria-hidden', 'false');
+      document.getElementById('questionInput').focus();
+    } else {
+      showLoginError('Login failed');
+    }
+  }
+
+  usernameEl.addEventListener('keydown', (e) => { if(e.key === 'Enter'){ e.preventDefault(); doLogin(); }});
+  passwordEl.addEventListener('keydown', (e) => { if(e.key === 'Enter'){ e.preventDefault(); doLogin(); }});
+  loginBtn.addEventListener('click', (e) => { e.preventDefault(); doLogin(); });
+
+  // toggle answer type rows
+  answerType.addEventListener('change', () => {
+    const v = answerType.value;
+    answerTextRow.style.display = v === 'text' ? '' : 'none';
+    answerLinkRow.style.display = v === 'link' ? '' : 'none';
+    answerFileRow.style.display = v === 'file' ? '' : 'none';
+  });
+
+  async function doUpload(){
+    uploadMsg.style.display = 'none';
+    const question = (document.getElementById('questionInput').value || '').trim();
+    if(!question){ uploadMsg.textContent = 'Enter a question'; uploadMsg.style.display='block'; return; }
+    const typ = answerType.value;
+    const form = new FormData();
+    form.append('question', question);
+    form.append('answer_type', typ);
+    if(typ === 'text'){
+      const t = (document.getElementById('answerText').value || '').trim();
+      if(!t){ uploadMsg.textContent='Enter answer text'; uploadMsg.style.display='block'; return; }
+      form.append('answer_text', t);
+    } else if(typ === 'link'){
+      const l = (document.getElementById('answerLink').value || '').trim();
+      if(!l){ uploadMsg.textContent='Enter link'; uploadMsg.style.display='block'; return; }
+      form.append('answer_link', l);
+    } else if(typ === 'file'){
+      const f = document.getElementById('answerFile');
+      if(!f.files || f.files.length === 0){ uploadMsg.textContent='Select a file'; uploadMsg.style.display='block'; return; }
+      form.append('file', f.files[0], f.files[0].name);
+    }
+
+    uploadMsg.textContent = 'Uploading...'; uploadMsg.style.display='block';
+    try{
+      const res = await fetch('/api/kb/upload', { method: 'POST', body: form });
+      if(!res.ok){ uploadMsg.textContent = 'Upload failed'; return; }
+      const data = await res.json().catch(()=>({}));
+      uploadMsg.textContent = 'Upload successful';
+      // reset
+      document.getElementById('questionInput').value = '';
+      document.getElementById('answerText').value = '';
+      document.getElementById('answerLink').value = '';
+      document.getElementById('answerFile').value = '';
+    }catch(e){
+      uploadMsg.textContent = 'Upload error';
+    }
+  }
+  uploadBtn.addEventListener('click', (e)=>{ e.preventDefault(); doUpload(); });
+
+  function logout(){
+    uploadArea.classList.add('hidden');
+    uploadArea.setAttribute('aria-hidden', 'true');
+    loginArea.classList.remove('hidden');
+    usernameEl.value = '';
+    passwordEl.value = '';
+    hideLoginError();
+    usernameEl.focus();
+  }
+  window.logout = logout;
+
+  // focus
+  window.addEventListener('DOMContentLoaded', () => { usernameEl.focus(); });
+</script>
+</body>
+</html>

@@ -1,0 +1,606 @@
+{
+  "teams_signin_authentication": {
+    "title": "Sign-in & Authentication Errors in Microsoft Teams",
+    "issues": {
+      "Problem": "Teams shows “You’re missing out” or fails to log in.",
+      "Clear Cache": "Clear Teams common cache (%appdata%\\Microsoft\\Teams).",
+      "Check Date/Time": "Ensure system date/time is correct.",
+      "Reset Credentials": "Reset saved credentials in Windows Credential Manager.",
+      "Web Login Test": "Try signing in via Teams web app to confirm account validity."
+    }
+  },
+  "teams_messages_delay": {
+    "title": "Messages Not Sending or Delayed in Teams",
+    "issues": {
+      "Problem": "Messages fail to send or appear delayed.",
+      "Poor Connectivity": "This usually happens due to poor connectivity or server sync issues.",
+      "Restart Teams": "Close and restart the Teams app.",
+      "Check Network": "Verify your internet connection and try wired connection if possible.",
+      "Service Health": "Check Microsoft 365 Service Health for tenant outages."
+    }
+  },
+  "teams_join_meeting": {
+    "title": "Cannot Join Teams Meeting",
+    "issues": {
+      "Problem": "User cannot join a Teams meeting.",
+      "Update Teams": "Ensure the Teams app is updated to latest version.",
+      "Try Web Version": "If link doesn’t open, join via Teams Web (browser).",
+      "Check Permissions": "Check if your account/role has join permissions (guest vs member)."
+    }
+  },
+  "teams_audio_video": {
+    "title": "Audio/Video Issues in Teams Meetings",
+    "issues": {
+      "Problem": "Microphone, camera or speakers not working.",
+      "Verify Permissions": "Check OS privacy settings for microphone and camera access.",
+      "Check Other Apps": "Ensure no other app is using the device.",
+      "Teams Device Settings": "Teams → Settings → Devices → Select correct input/output.",
+      "Update Drivers": "Update audio/video drivers and OS updates."
+    }
+  },
+  "teams_file_sharing": {
+    "title": "File Sharing & Collaboration Issues in Teams",
+    "issues": {
+      "Problem": "Shared files won’t open or sync.",
+      "Permissions": "Check SharePoint/OneDrive file permissions.",
+      "Use Web App": "Open files in Teams Web to determine if client-specific.",
+      "Restart OneDrive": "Restart OneDrive sync client and verify sync status.",
+      "Ask Admin": "Ask IT admin to reset permissions if access blocked."
+    }
+  },
+  "teams_slow_freezing": {
+    "title": "Teams Running Slowly or Freezing",
+    "issues": {
+      "Problem": "Teams is slow, freezes or consumes high CPU.",
+      "Clear Cache": "Clear Teams cache (%appdata%\\Microsoft\\Teams).",
+      "Close Background Apps": "Close heavy apps using CPU/network.",
+      "Update Teams": "Install latest Teams and OS updates.",
+      "Reinstall": "Reinstall Teams if persistent."
+    }
+  },
+  "teams_notifications": {
+    "title": "Teams Notifications & Presence Issues",
+    "issues": {
+      "Problem": "Notifications missing or presence not updating.",
+      "Check Teams Settings": "Teams → Settings → Notifications.",
+      "Check OS Notifications": "Ensure system notifications are allowed for Teams.",
+      "Focus Assist": "Turn off Focus Assist / Do Not Disturb mode.",
+      "Sign Out & In": "Sign out and sign back in to refresh presence."
+    }
+  },
+  "teams_screen_sharing": {
+    "title": "Teams Screen Sharing Problems",
+    "issues": {
+      "Problem": "Cannot share screen or screen share blocked.",
+      "OS Permissions": "Grant screen recording/screen capture permissions (macOS/Windows).",
+      "VDI Restrictions": "VDI/Remote sessions may block sharing — check with admin.",
+      "Browser Sharing": "Try Teams Web with browser sharing if desktop fails."
+    }
+  },
+  "teams_connection_error": {
+    "title": "Teams Connection Errors",
+    "issues": {
+      "Problem": "We’re having trouble connecting / network errors in Teams.",
+      "Restart Network": "Restart router or switch to another network.",
+      "VPN/Firewall": "Check if corporate VPN or firewall blocks Teams traffic.",
+      "Proxy Settings": "Verify proxy settings in system or browser."
+    }
+  },
+  "teams_addin_outlook": {
+    "title": "Teams Add-in Missing in Outlook",
+    "issues": {
+      "Problem": "Teams meeting add-in not visible in Outlook.",
+      "Install Both": "Ensure both Teams and Outlook are installed.",
+      "Same Account": "Confirm you are signed into the same account in both apps.",
+      "Enable Add-in": "Outlook → Options → Add-ins → enable Microsoft Teams add-in."
+    }
+  },
+  "teams_meeting_recording": {
+    "title": "Meeting & Recording Issues in Teams",
+    "issues": {
+      "Problem": "Recording not saving or permissions error.",
+      "Check Storage": "Ensure OneDrive/SharePoint storage quota available for recordings.",
+      "Admin Policy": "Recording might be disabled by admin policies — contact IT.",
+      "Retry Upload": "If recording stuck, check OneDrive/SharePoint recent uploads."
+    }
+  },
+  "excel_common_problems": {
+    "title": "Common Excel Problems & Solutions",
+    "issues": {
+      "Formula Error #DIV/0!": "Division by zero — confirm denominator is not zero.",
+      "Formula Error #VALUE!": "Wrong data type — ensure inputs match expected types.",
+      "Formula Error #NAME?": "Misspelled function or missing add-in — fix spelling or enable add-in.",
+      "Formula Error #REF!": "Invalid cell reference — update formulas after deleting/moving cells.",
+      "Formula Error #N/A": "Lookup didn't find match — verify lookup values.",
+      "#### in Cells": "Column too narrow or negative date — widen column or correct data.",
+      "Numbers Show as Text": "Use Text to Columns or change cell format to Number.",
+      "Performance Problems": "Disable add-ins, split large files, update Excel.",
+      "File Compatibility": "Use Open & Repair; save as .xlsx.",
+      "Collaboration Issues": "Use OneDrive or Excel Online for co-authoring."
+    }
+  },
+  "excel_enable_macros": {
+    "title": "Steps to Enable Macros in Excel (Trust Center)",
+    "issues": {
+      "Open Excel": "Launch Excel.",
+      "Go to Options": "File → Options.",
+      "Open Trust Center": "Trust Center → Trust Center Settings…",
+      "Macro Settings": "Choose macro security level.",
+      "Recommended": "Disable all macros with notification for safe testing.",
+      "Enable Case-by-Case": "Enable macros for trusted documents as needed.",
+      "Save & Restart": "Click OK and restart Excel if required."
+    }
+  },
+  "outlook_not_responding": {
+    "title": "Outlook Not Responding / Freezing",
+    "issues": {
+      "Problem": "Outlook hangs or becomes unresponsive.",
+      "Safe Mode": "Run outlook.exe /safe to disable add-ins.",
+      "Disable Faulty Add-ins": "Disable add-ins one-by-one to find culprit.",
+      "Repair Office": "Repair Office via Control Panel or Settings.",
+      "Update Office": "Install latest Office updates."
+    }
+  },
+  "outlook_send_receive": {
+    "title": "Outlook Send/Receive Errors",
+    "issues": {
+      "Problem": "Emails stuck in Outbox or error codes.",
+      "Check Connection": "Verify internet connectivity.",
+      "Verify Account": "Check SMTP/IMAP/Exchange settings.",
+      "Clear Outbox": "Remove problematic email and retry.",
+      "Run ScanPST": "Repair PST/OST using ScanPST.exe."
+    }
+  },
+  "outlook_cannot_start": {
+    "title": "Cannot Start Microsoft Outlook",
+    "issues": {
+      "Problem": "Cannot open the Outlook window.",
+      "Reset Navigation": "Run outlook.exe /resetnavpane.",
+      "Create Profile": "Create a new Outlook profile from Control Panel.",
+      "Repair PST": "Repair corrupted PST file.",
+      "Reinstall Outlook": "Reinstall Outlook if profile corruption persists."
+    }
+  },
+  "outlook_crashes": {
+    "title": "Frequent Outlook Crashes",
+    "issues": {
+      "Problem": "Outlook closes unexpectedly.",
+      "Disable Add-ins": "Disable faulty add-ins.",
+      "Update Software": "Update Windows and Office.",
+      "Check PST Size": "Large PST file may cause crashes — split if needed.",
+      "Office Repair": "Run Office Repair Tool."
+    }
+  },
+  "outlook_password_prompt": {
+    "title": "Outlook Repeated Password Prompt",
+    "issues": {
+      "Problem": "Outlook repeatedly asks for password.",
+      "Clear Credentials": "Clear saved credentials in Windows Credential Manager.",
+      "Enable Remember": "Enable 'Remember password' option in account settings.",
+      "Check Exchange Connectivity": "Verify Exchange/Office 365 connectivity.",
+      "Authentication Mode": "Confirm Modern Authentication is enabled if required."
+    }
+  },
+  "outlook_corrupted_pst_ost": {
+    "title": "Corrupted PST/OST Files",
+    "issues": {
+      "Problem": "Missing emails, folders inaccessible or Outlook crashing.",
+      "Use ScanPST": "Run Inbox Repair Tool (ScanPST.exe).",
+      "Split Large PST": "Split very large PST files into smaller ones.",
+      "Recreate OST": "Backup and recreate OST for Exchange accounts."
+    }
+  },
+  "outlook_search_not_working": {
+    "title": "Outlook Search Returns Incomplete or No Results",
+    "issues": {
+      "Problem": "Search returns wrong or no results.",
+      "Rebuild Index": "Rebuild Windows Search index via Indexing Options.",
+      "Ensure Outlook Included": "Confirm Outlook is included in indexing locations.",
+      "Update Office": "Install Office and Windows updates."
+    }
+  },
+  "zid_password_reset": {
+    "title": "Step-by-Step Guide for Zid Password Reset",
+    "issues": {
+      "Access Portal": "Navigate to https://suppliers.renault.com.",
+      "If You Know Password": "Enter IPN and current password then set a new one.",
+      "If Forgotten": "Click 'I lost my password' and follow recovery steps.",
+      "Provide Details": "Enter IPN and registered email to receive temporary password.",
+      "Login With Temporary Password": "Use IPN and temporary password to access PUMMP.",
+      "Create New Password": "Enter and confirm new password.",
+      "Validate Password": "Submit and confirm password change."
+    }
+  },
+  "printer_configuration": {
+    "title": "Printer Configuration & SecurePrint (PPM) Setup",
+    "issues": {
+      "Open PPM": "Open Personal Print Manager (PPM) on your workstation.",
+      "Continue with Browser": "Click 'Continue with Browser' to authenticate via web.",
+      "SecurePrint Queue": "SECUREPRINT should appear in list of available printers after auth.",
+      "How to Print": "Select SECUREPRINT queue in app → Print (job held in queue).",
+      "Release at Printer": "Go to printer, authenticate (swipe card or login) and release job.",
+      "Print Options": "Choose Print All, Print - Delete, Print - Keep, or Delete job."
+    }
+  },
+  "hp_badge_registration": {
+    "title": "HP Printer Badge Registration (Company ID)",
+    "issues": {
+      "Present Card": "Swipe/present Company ID card at printer badge reader.",
+      "Enrollment Prompt": "Follow on-screen prompts if card is not enrolled.",
+      "Enter Email": "Provide your work email when requested for enrollment.",
+      "Finish Enrollment": "Open the enrollment email on your workstation and click 'Finish your enrolment'."
+    }
+  },
+  "printer_troubleshoot_paper_jam": {
+    "title": "Printer Paper Jam / Paper Feed Issues",
+    "issues": {
+      "Problem": "Printer reports paper jam or won't feed paper.",
+      "Turn Off": "Turn off printer and unplug power before clearing jam.",
+      "Open Panels": "Open paper path and carefully remove stuck paper.",
+      "Check for Debris": "Remove torn pieces and check rollers.",
+      "Reload Paper": "Reload correctly aligned paper and test print."
+    }
+  },
+  "printer_offline_not_found": {
+    "title": "Printer Offline or Not Found on Network",
+    "issues": {
+      "Problem": "PC cannot find network printer or printer shows offline.",
+      "Check Connection": "Ensure printer connected to same network (Wi-Fi/Ethernet).",
+      "Verify IP": "Check printer IP on device display and ping from PC.",
+      "Restart Devices": "Restart printer and network switch/router.",
+      "Static IP": "Assign static IP if DHCP issues persist."
+    }
+  },
+  "printer_driver_issues": {
+    "title": "Printer Driver / Blank or Garbled Output",
+    "issues": {
+      "Problem": "Printer prints blank pages or garbled text.",
+      "Reinstall Driver": "Uninstall and install latest driver from manufacturer website.",
+      "Test Page": "Print test page from printer menu.",
+      "Use Vendor Tools": "Run manufacturer's diagnostic utility."
+    }
+  },
+  "secureprint_options": {
+    "title": "SecurePrint Options and Job Management",
+    "issues": {
+      "Print All": "Print all documents in queue.",
+      "Print - Delete": "Print the job and remove it from queue.",
+      "Print - Keep": "Print the job but keep it in queue for later.",
+      "Delete Job": "Remove job from queue without printing."
+    }
+  },
+  "manual_temp_delete": {
+    "title": "Manual Deletion of Temp Files (%temp%)",
+    "issues": {
+      "Open Run": "Press Win + R and type %temp% and press Enter.",
+      "Select Files": "Select all files (Ctrl + A) to delete.",
+      "Skip Locked Files": "Skip files that are in use by applications."
+    }
+  },
+  "network_no_internet": {
+    "title": "No Internet / Network Connection Issues",
+    "issues": {
+      "Problem": "No internet connectivity on device.",
+      "Check Modem Router": "Check lights on modem/router and restart devices.",
+      "Use Ethernet": "Try a wired connection to isolate Wi-Fi issues.",
+      "IP Release": "Run ipconfig /release && ipconfig /renew on Windows.",
+      "Contact ISP": "Contact ISP if outage suspected."
+    }
+  },
+  "network_slow": {
+    "title": "Slow Network or High Latency",
+    "issues": {
+      "Problem": "Slow browsing or high latency.",
+      "Speed Test": "Run a speed test to confirm bandwidth.",
+      "Limit Users": "Disconnect heavy users or streaming devices.",
+      "Restart Router": "Restart router and check for firmware updates.",
+      "Check Local Network": "Scan for devices consuming bandwidth."
+    }
+  },
+  "wifi_not_connecting": {
+    "title": "Wi-Fi Not Connecting",
+    "issues": {
+      "Problem": "Device won’t connect to Wi-Fi.",
+      "Toggle Wi-Fi": "Turn Wi-Fi off and on again on device.",
+      "Forget Network": "Forget network and re-enter password.",
+      "Check SSID Password": "Confirm correct Wi-Fi password.",
+      "Driver Update": "Update wireless adapter drivers."
+    }
+  },
+  "vpn_connection": {
+    "title": "VPN Not Connecting",
+    "issues": {
+      "Problem": "VPN client cannot establish connection.",
+      "Check Credentials": "Verify username/password or certificate used by VPN.",
+      "Use Alternate Network": "Try connecting from a different network.",
+      "Check Client Logs": "Inspect VPN client logs for errors.",
+      "Contact VPN Admin": "Contact network/security team for server-side issues."
+    }
+  },
+  "dns_issues": {
+    "title": "DNS Resolution Problems",
+    "issues": {
+      "Problem": "Unable to resolve domain names.",
+      "Flush DNS": "Run ipconfig /flushdns on Windows.",
+      "Use Public DNS": "Try 8.8.8.8 or 1.1.1.1 as DNS server for testing.",
+      "Check DNS Server": "Verify corporate DNS server availability."
+    }
+  },
+  "login_account_locked": {
+    "title": "Account Locked / Login Problems",
+    "issues": {
+      "Problem": "User cannot sign in or account is locked.",
+      "Wait Auto Unlock": "Some systems auto-unlock after a set time (e.g., 15 minutes).",
+      "Reset Password": "Use Forgot Password flow or contact IT to reset.",
+      "Verify Username": "Ensure username/UPN typed correctly.",
+      "Check MFA": "Verify multi-factor authentication steps if enabled."
+    }
+  },
+  "mfa_issues": {
+    "title": "Multi-Factor Authentication (MFA) Problems",
+    "issues": {
+      "Problem": "MFA push or code not received.",
+      "Check Phone": "Ensure phone has signal and time is correct.",
+      "Use Backup Method": "Use SMS or backup codes if available.",
+      "Resync App": "Resync time-based authenticator app (e.g., in Google Authenticator).",
+      "Contact Admin": "Contact IT to reset MFA if device lost."
+    }
+  },
+  "software_install": {
+    "title": "Cannot Install Application / Software",
+    "issues": {
+      "Problem": "Installer fails or is blocked.",
+      "Admin Rights": "Confirm you have administrator privileges.",
+      "Check Disk Space": "Ensure enough free disk space.",
+      "Run as Admin": "Right-click installer → Run as administrator.",
+      "Check Antivirus": "Temporarily disable antivirus if blocking installer (with caution)."
+    }
+  },
+  "app_crashes": {
+    "title": "Application Crashes or Won't Launch",
+    "issues": {
+      "Problem": "App crashes immediately or won't start.",
+      "Update App": "Install latest version of the app.",
+      "Check Logs": "Look at app or system event logs for errors.",
+      "Reinstall": "Uninstall and reinstall the application.",
+      "Compatibility Mode": "Try running in compatibility mode for older apps."
+    }
+  },
+  "browser_issues": {
+    "title": "Browser Problems & Website Loading",
+    "issues": {
+      "Problem": "Website not loading or behaves incorrectly.",
+      "Clear Cache": "Clear browser cache and cookies.",
+      "Disable Extensions": "Disable browser extensions to isolate issue.",
+      "Try Another Browser": "Test site in another browser (Edge/Chrome/Firefox).",
+      "Check SSL": "If SSL error appears, verify date/time and certificate validity."
+    }
+  },
+  "device_overheat": {
+    "title": "Device Overheating (Laptop/Desktop)",
+    "issues": {
+      "Problem": "Device gets very hot or fans loud.",
+      "Hard Surface": "Use device on a hard, flat surface for airflow.",
+      "Close Apps": "Close CPU/GPU intensive apps and background tasks.",
+      "Clean Fans": "Clean dust from vents and fans if comfortable doing so.",
+      "Use Cooling": "Consider laptop cooling pad or service if persistent."
+    }
+  },
+  "battery_issues": {
+    "title": "Battery Draining Fast / Not Charging",
+    "issues": {
+      "Problem": "Battery drains quickly or won't charge.",
+      "Check Power Adapter": "Confirm adapter and cable are working.",
+      "Battery Health": "Check battery health in OS settings.",
+      "Power Settings": "Use power saver or adjust screen brightness.",
+      "Replace Battery": "Consider battery replacement if degraded."
+    }
+  },
+  "usb_not_detected": {
+    "title": "USB Device Not Detected",
+    "issues": {
+      "Problem": "USB device not recognized by system.",
+      "Try Different Port": "Try another USB port or cable.",
+      "Check Device Manager": "Look for errors in Device Manager (Windows).",
+      "Restart": "Disconnect, restart PC, reconnect device.",
+      "Install Drivers": "Install/update vendor drivers for the USB device."
+    }
+  },
+  "camera_microphone_not_detected": {
+    "title": "Camera or Microphone Not Detected",
+    "issues": {
+      "Problem": "Built-in or external camera/mic not recognized.",
+      "Permissions": "Check OS privacy settings for camera/mic access.",
+      "Device Manager": "Verify device is enabled and drivers installed.",
+      "Test in Another App": "Test camera/mic in another app to isolate issue.",
+      "Restart": "Restart system or reconnect device."
+    }
+  },
+  "bluetooth_issues": {
+    "title": "Bluetooth Not Pairing / Disconnects",
+    "issues": {
+      "Problem": "Bluetooth devices won't pair or keep disconnecting.",
+      "Turn Off/On": "Toggle Bluetooth off and on.",
+      "Remove Device": "Remove/pair device again from Bluetooth settings.",
+      "Proximity": "Ensure device within range and charged.",
+      "Driver Update": "Update Bluetooth drivers on the system."
+    }
+  },
+  "disk_space_low": {
+    "title": "Low Disk Space / Storage Problems",
+    "issues": {
+      "Problem": "System warns of low disk space.",
+      "Disk Cleanup": "Run Disk Cleanup or delete unneeded files.",
+      "Uninstall Apps": "Uninstall unused applications.",
+      "Move Files": "Move large files to external drive or cloud storage.",
+      "Check Large Folders": "Use tools to find largest files/folders."
+    }
+  },
+  "slow_system_high_cpu": {
+    "title": "Slow System / High CPU or Memory Usage",
+    "issues": {
+      "Problem": "System slow, high CPU or memory usage.",
+      "Task Manager": "Open Task Manager to identify heavy processes.",
+      "Close Programs": "Close unnecessary applications and browser tabs.",
+      "Scan for Malware": "Run antivirus scan to rule out malware.",
+      "Restart": "Restart system to clear transient issues."
+    }
+  },
+  "blue_screen_bsod": {
+    "title": "Blue Screen (BSOD) / System Crashes",
+    "issues": {
+      "Problem": "System shows Blue Screen with stop code.",
+      "Note Error Code": "Record stop code and message for troubleshooting.",
+      "Recent Changes": "Undo recent driver or hardware changes.",
+      "Update Drivers": "Update drivers and Windows.",
+      "Safe Mode": "Boot into Safe Mode to isolate driver issues."
+    }
+  },
+  "backup_and_restore": {
+    "title": "Backup & Restore Guidance",
+    "issues": {
+      "Problem": "Need to backup or restore files.",
+      "Use Cloud": "Use OneDrive/Google Drive for automatic backups.",
+      "Local Backup": "Copy important files to external drive.",
+      "System Restore": "Use Restore Points or system image for full restore.",
+      "Test Restore": "Verify backup integrity by test restoring."
+    }
+  },
+  "security_phishing": {
+    "title": "Suspected Phishing or Malicious Email",
+    "issues": {
+      "Problem": "User received suspicious email requesting credentials.",
+      "Do Not Click": "Do not click links or open attachments.",
+      "Report": "Report email to security team or use 'Report Phishing' in mail client.",
+      "Scan": "Run antivirus/endpoint scan on device.",
+      "Reset Password": "If credentials exposed, reset password and notify IT."
+    }
+  },
+  "generic_troubleshoot_template": {
+    "title": "Generic Troubleshooting Steps (Template)",
+    "issues": {
+      "Reproduce": "Reproduce issue and note exact error messages, time, and steps.",
+      "Restart": "Close the affected app and restart device/service.",
+      "Check Settings": "Verify app-specific settings and permissions.",
+      "Update": "Apply available updates to app, drivers and OS.",
+      "Collect Logs": "Collect logs, screenshots and diagnostic data for escalation.",
+      "Workaround": "Try web apps or alternate devices as temporary workaround.",
+      "Escalate": "Provide IT with collected info if problem persists."
+    }
+  },
+  "power_on_issue": {
+    "title": "System / Laptop Not Powering On",
+    "issues": {
+      "Problem": "Laptop or desktop does not turn on when pressing the power button.",
+      "Check Power Source": "Ensure the power cable is properly connected to the adapter and wall socket. Try a different socket.",
+      "Adapter / Battery": "Check if the charging indicator lights up. Remove the battery (if removable) and try powering on with adapter only.",
+      "Power Drain": "Disconnect charger → Hold power button for 15–20 seconds → Reconnect charger → Try powering on.",
+      "External Devices": "Remove USB devices, HDMI, docking station. Faulty peripherals can block startup.",
+      "Overheating Lock": "If the device was hot, wait 5–10 minutes and try again.",
+      "Faulty Hardware": "If there is no light/beep/fan sound at all, internal components may be faulty.",
+      "Fix": "If the device still does not power on, raise a hardware ticket for IT diagnostics."
+    }
+  },
+  "how_can_i_see_see_my_unread_mails_in_outlook": {
+    "title": "how can i see see my unread mails in outlook",
+    "issues": {
+      "Solution": "On Outlook Desktop App (Windows/Mac)\r\nOpen Outlook.\r\nGo to your Inbox.\r\nAt the top, click the Filter Email button (on the Home ribbon).\r\nChoose Unread → this will instantly show only unread message"
+    }
+  },
+  "jbgb": {
+    "title": "jbgb",
+    "issues": {
+      "Solution": "mjgukj"
+    }
+  },
+  "what_is_it_helpdesk": {
+    "title": "what is it helpdesk?",
+    "issues": {
+      "Solution": "An IT helpdesk is the frontline service that helps users with technology problems and requests. It’s the central place people contact when something isn’t working (email, network, printer), when they need access or installs, or when they want guidance on company software and IT policies."
+    }
+  },
+  "who_developed_you": {
+    "title": "who developed you",
+    "issues": {
+      "Solution": "Afrin-The main\r\nAkshaya-The assistant"
+    }
+  },
+  "what_is_isit": {
+    "title": "what is isit",
+    "issues": {
+      "Solution": "Leadership & Team Structure\r\n\r\nThe IT Helpdesk operates under a strong leadership framework that ensures efficient service delivery and continuous improvement:\r\n\r\nHead of the Department: Mr. Senthil\r\nProvides strategic direction, oversees IT service quality, and ensures alignment with organizational goals.\r\n\r\nSenior Manager: Mr. Deepak\r\nManages operational priorities, resource allocation, and escalated service issues.\r\n\r\nSenior Engineer:  Mr.selvaraj Vijayakumar\r\nHandles advanced troubleshooting, system-level support, and critical incident resolution.\r\n\r\nTeam Leader: Mr. Doss Vincent\r\nCoordinates the day-to-day activities of the helpdesk team, ensures adherence to SLAs, and mentors support engineers.\r\n\r\nSupport Engineers:\r\nA dedicated team of 11 skilled professionals who deliver frontline technical support, ticket resolution, and user assistance."
+    }
+  },
+  "who_is_your_boss": {
+    "title": "who is your boss",
+    "issues": {
+      "Solution": "Akshaya"
+    }
+  },
+  "who_is_the_problem_for_ithelpdesk": {
+    "title": "Who is the problem for Ithelpdesk",
+    "issues": {
+      "Solution": "gunal gunal dhanal gunal gunal dhanal dhanal unal gunal dhanal gunal gunal dhanal dhanal unal gunal dhanal gunal gunal dhanal dhanal g gunal gunal dhanal gunal gunal dhanal dhana glunal gunal dhanal gunal gunal dhanal dhanal"
+    }
+  },
+  "i_am_stressed": {
+    "title": "I am stressed",
+    "issues": {
+      "Solution": "I'm really sorry that you're feeling stressed. It's completely okay to feel this way — you're not alone.\r\n\r\nTake a moment to breathe. You’ve handled challenges before, and you’ll get through this too.\r\n\r\nStress happens to all of us. I'm here to support you — tell me what’s troubling you.\r\n\r\nIt’s alright to pause and reset. Your well-being matters."
+    }
+  },
+  "why_laptop_is_slow": {
+    "title": "why laptop is slow",
+    "issues": {
+      "Solution": "Common reasons include too many background apps, low memory, heavy browser usage, or Windows updates pending. Restart your system and close heavy apps. If still slow, contact IT for diagnosis."
+    }
+  },
+  "my_system_is_not_turning_on_what_should_i_check_first": {
+    "title": "My system is not turning on. What should I check first",
+    "issues": {
+      "Solution": "Check the power cable, adapter light, battery, and try a 20-second power drain. Remove external devices (USB, HDMI) and try again."
+    }
+  },
+  "picture_give": {
+    "title": "picture give",
+    "issues": {
+      "Solution": "/uploads/Screenshot_2025-12-10_150415_ec72effff12948fba21c472f7cae28d8.png"
+    }
+  },
+  "my_system_is_not_turning_on_what_should_i_check_first_1": {
+    "title": "My system is not turning on. What should I check first?",
+    "issues": {
+      "Solution": "heck the power cable, adapter light, battery, and try a 20-second power drain. Remove external devices (USB, HDMI) and try again."
+    }
+  },
+  "what_is_computer": {
+    "title": "what is computer",
+    "issues": {
+      "Solution": "it is electronic device"
+    }
+  },
+  "ggg": {
+    "title": "ggg",
+    "issues": {
+      "Solution": "hhh"
+    }
+  },
+  "whatis_thus": {
+    "title": "whatis thus",
+    "issues": {
+      "Solution": "https://www.img2go.com/crop-image/editor"
+    }
+  },
+  "hello": {
+    "title": "hello",
+    "issues": {
+      "Solution": "HI.How Can I Help You"
+    }
+  },
+  "need_printer_team_number": {
+    "title": "Need printer Team number",
+    "issues": {
+      "Solution":   " Anand +9698860648"
+    }
+  }
+}
