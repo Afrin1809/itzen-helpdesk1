@@ -146,9 +146,14 @@
        </div>
  
        <div class="info">
-         <div style="font-weight:700;color:#fff">Need more help?</div>
-         <div style="margin-top:8px">If suggested solutions don't solve the issue, contact IT at <strong>support@example.com</strong> or call <strong>+1 800 555 0199</strong>.</div>
-       </div>
+  <div style="font-weight:700;color:#fff">Need more help?</div>
+  <div style="margin-top:8px">
+    If suggested solutions don't solve the issue, contact IT at 
+    <strong>it.helpdesk@rnaipl.com</strong> or call 
+    <strong>04471699000</strong>.
+  </div>
+</div>
+
      </aside>
  
      <main class="chat-area" style="min-height:0; display:flex; flex-direction:column;">
@@ -459,8 +464,15 @@ function speak(text){
   lastIssueList = [];
   }
   window.markResolved = function(){ addMessage('Thank you — glad it worked! If you need anything else, type your question.','bot'); speak('Glad it worked.'); }
-  window.contactSupport = function(){ addMessage('You can contact IT support at support@example.com or call +1 800 555 0199. Would you like me to open a ticket for you?','bot'); speak('You can contact IT support at support at example dot com.'); }
- 
+  window.contactSupport = function(){
+  addMessage(
+    'You can contact IT support at it.helpdesk@rnaipl.com or call 04471699000. Would you like me to open a ticket for you?',
+    'bot'
+  );
+  speak('You can contact IT support at it dot helpdesk at r n a i p l dot com.');
+}
+
+
   /* ===== Backend persistence helpers ===== */
   async function backendAddSearchTerm(term){
     try {
